@@ -1,0 +1,29 @@
+<!doctype html>
+<html lang="es">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>T147 E22P-868 · Actualización OTA</title>
+<meta name="description" content="Fuente OTA independiente para T147 DualBoot con E22P-868M30S. Perfil experimental RF30 basado en la curva del fabricante.">
+<style>
+:root{color-scheme:dark;font-family:system-ui,sans-serif;background:#111820;color:#e9f0f5}body{margin:0;padding:40px 20px}main{max-width:700px;margin:auto}h1{font-size:2rem;line-height:1.15}p,li{line-height:1.65}small{color:#aec0cd}.tag{display:inline-block;padding:5px 10px;border:1px solid #647e92;border-radius:30px;color:#bfdbed;font-size:.8rem}.source{background:#1b2a37;padding:20px;border-radius:12px;margin:24px 0}.source code{display:block;overflow-wrap:anywhere;font-size:1rem;line-height:1.5}button{margin-top:16px;border:0;border-radius:6px;padding:11px 18px;background:#a8d5f2;color:#102536;font:inherit;cursor:pointer}a{color:#a8d5f2}ol{padding-left:23px}li{margin-bottom:10px}.note{border-left:3px solid #a8d5f2;padding-left:16px}footer{margin-top:32px;border-top:1px solid #344756;padding-top:20px;font-size:.9rem}#copied{display:inline-block;margin-left:12px;color:#b5dfba}
+</style>
+<main>
+<span class="tag">E22P-868M30S · Experimentos cerrados</span>
+<h1>T147 DualBoot<br>Actualización por OTA</h1>
+<p>Fuente independiente para actualizar WadaMesh y Meshtastic desde la primera factory privada con Source editable.</p>
+<div class="source"><small>Escribir en Loader → OTA → Source → Edit</small><code id="source">https://projectsape.github.io/t147-e22p868-ota</code><button id="copy" type="button">Copiar fuente</button><span id="copied" role="status" aria-live="polite"></span></div>
+<ol>
+<li>Entrar al loader, conectar Wi-Fi y esperar la sincronización de hora.</li>
+<li>Abrir <strong>OTA → Source → Edit</strong>, escribir la fuente completa y guardar con <strong>Done</strong>.</li>
+<li>Pulsar <strong>Check</strong> y actualizar <strong>WadaMesh</strong>, siguiendo <strong>Install / Test / Confirm</strong>.</li>
+<li>Repetir para <strong>Meshtastic</strong>.</li>
+<li>En cada app, seleccionar potencia <strong>30</strong> una vez.</li>
+</ol>
+<p>La OTA conserva los ajustes guardados, el GPS, las redes y los canales. El loader permanece igual.</p>
+<p class="note"><strong>30dBm nominales de RF.</strong> Perfil basado en la curva EBYTE a5V, con excitación máxima10dBm. No se ha medido ni calibrado la potencia de la unidad real. Incluye una excepción de potencia para los experimentos cerrados; conserva las frecuenciasEU_868.</p>
+<footer><a href="LEEME-PINOUT.md">Guía y cableado</a> · <a href="release.json">Versiones y hashes</a> · <a href="SHA256SUMS">Checksums</a><p><small>Exclusivo para E22P-868M30S con alimentación del radio a5V.</small></p></footer>
+</main>
+<script>
+document.getElementById('copy').addEventListener('click',async()=>{const status=document.getElementById('copied');try{await navigator.clipboard.writeText(document.getElementById('source').textContent);status.textContent='Fuente copiada';}catch{status.textContent='Selecciona y copia la URL mostrada';}});
+</script>
+</html>

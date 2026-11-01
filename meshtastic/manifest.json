@@ -1,0 +1,15 @@
+{
+  "schema_version": 3,
+  "version": "E22P868-RF30-20261101",
+  "app_version": "2.8.2.3593f31",
+  "commit": "332b5b0a2c4fec2896de3c5fa63f46d5cd05ea98",
+  "health_protocol": 0,
+  "board": "waveshare-esp32-s3-touch-lcd-1.47-lora-dualboot",
+  "component": "meshtastic",
+  "layout": "ape-t147-dualboot-ota-v2",
+  "size": 3763280,
+  "sha256": "a442a05b31d8e7642726bfdfe35d029328a51eb08ead483dba34a7ba32fa0e44",
+  "firmware_url": "meshtastic-e22p868-rf30-a442a05b31d8e764.bin",
+  "notes": "E22P868 5V closed RF test. RF30 reference; chip10. Set TX30 after OTA. GPS retained.",
+  "signature": "MEUCIBk77kwZiVoY3nni0X1QmiUtiV97uBd73n7EAWUumPBsAiEAiKu0MDsUUmMFwBUc2H+PrVuoT2GyGYjFryzfxPrMLAE="
+}

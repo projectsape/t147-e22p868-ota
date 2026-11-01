@@ -1,6 +1,8 @@
 # T147 DualBoot + EBYTE E22P-868M30S
 
-Revisión experimental del **1-nov-2026** para el módulo **E22P-868M30S**: solicitud nominal **+30dBm RF**, con excitación máxima **+10dBm** basada en la curva EBYTE a5V. No es una calibración ni una medición de1W. Incluye **loader con Source vacío y editable**, WadaMesh beta_101 / v1.18.0.1-touch y Meshtastic2.8.2.3593f31 con el arreglo GPS validado. Los hashes de la factory local figuran en `SHA256SUMS` y `factory-receipt.json`.
+**Perfil OTA vigente: excitación directa +22dBm en ambas apps**, publicado por petición explícita de Enmanuel. La potencia final del PA no está calibrada a1W.
+
+Factory privada para el módulo **E22P-868M30S**, revisión del **1-nov-2026**, con excitación directa del SX1262 a **+22 dBm de fábrica y como máximo**. Incluye **loader con Source vacío y editable**, WadaMesh beta_101 / v1.18.0.1-touch y Meshtastic2.8.2.3593f31 con el arreglo GPS validado. El nombre completo de la imagen y su SHA256 figuran en `SHA256SUMS` y `factory-receipt.json`, entregados junto a esta guía.
 
 Esta variante se preparó aparte de los builds publicados. No se modificó ninguna PCB ni se flasheó la placa de Enmanuel. Es un candidato compilado y verificado por software; falta probar arranque y comunicación RF en el montaje E22P-868 del destinatario. No se certifica potencia RF medida ni alcance.
 
@@ -42,25 +44,11 @@ Existe además una revisión **V2 Wio del16-oct-2026**, con huella Wio distinta.
 
 - **Meshtastic:** región inicial `EU_868`, preset habitual del firmware; soporte SX1262, DIO2 como RF switch y TCXO1.8V. Los otros nodos deben usar región/preset/canal compatibles. Este módulo está especificado para863.3–873.3MHz; no seleccionarUS915/ANZ915.
 - **WadaMesh:**869.525MHz, BW250kHz, SF11, CR5; comprobar que coincide con la red MeshCore del destinatario. WadaMesh y Meshtastic son protocolos distintos: cada app se conecta a su propia red.
-- **PA externo:** ambas apps convierten solicitud nominal RF30→excitación10dBm. Meshtastic usa `TX_GAIN_LORA=20` y `SX126X_MAX_POWER=10`; Wada aplica la misma conversión mediante su wrapper privado. La preferencia de fábrica es30 en ambas apps. Se sustituye la política conservadora anterior22/8 por una referencia basada en el punto10→aproximadamente30 de la curva del fabricante a5V.
+- **Potencia del chip:** ambas apps arrancan con solicitud **+22 dBm al SX1262**, su máximo. Meshtastic usa `SX126X_MAX_POWER=22`, `TX_GAIN_LORA=0` y `USERPREFS_LORACONFIG_TX_POWER=22`. Wada usa su wrapper estándar `CustomSX1262Wrapper`, `LORA_TX_POWER=22` y `MAX_LORA_TX_POWER=22`. Se retiró la conversión privada anterior y su techo de8 dBm. En esta revisión el selector describe la excitación del chip: todavía permite bajarla, pero no solicita30 dBm al SX1262.
 
-La curva EBYTE a5V muestra cerca de30dBm RF con ajuste10 y cerca de32dBm con ajuste22 para el E22P868. El PA no suma siempre8dB ni limita automáticamente a1W. La compensación20 es una referencia cerca del punto de1W, no una calibración de ganancia constante en todo el rango. Sin medidor no se garantiza +30dBm exactos. Tampoco se afirma que22dBm por sí solo dañe el SX1262: el fabricante caracteriza ese ajuste.
+La potencia seleccionada **no mide la salida del PA**. La curva EBYTE a5V muestra aproximadamente **+32 dBm RF con ajuste +22 dBm** en el E22P-868: alrededor de1.6W, no un limitador automático a1W. Es una lectura aproximada de la gráfica, no una medición de este montaje. La salida real depende del módulo y su alimentación; no se garantiza una potencia final concreta. La compensación0 indica que este perfil no calcula la salida RF del PA; no significa que el PA carezca de ganancia.
 
-**Perfil de experimentos cerrados autorizado por Enmanuel:** conserva las frecuencias deEU_868 y su duty cycle; bajo una macro exclusiva de esta variante, ambos controles de potencia Meshtastic permiten solicitud nominal30 en vez del límite regional27. No se cambia el estado licensed, cifrado, loader, ni las variantes normales. Este feed no es el firmware normal para despliegues públicos.
-
-## Actualizar desde la primera versión por OTA
-
-Si ya tiene instalada la primera factory privada con Source editable, no necesita otra factory ni borrar configuración. Fuente independiente:
-
-`https://projectsape.github.io/t147-e22p868-ota`
-
-1. En el loader, conectar Wi-Fi y esperar la sincronización de hora.
-2. Abrir **OTA → Source → Edit**, pegar la fuente completa y guardar con **Done**.
-3. Ejecutar **Check** e instalar la actualización deWadaMesh; seguir **Install / Test / Confirm** del loader.
-4. Repetir paraMeshtastic. Se actualizan por separado sus respectivas ranuras.
-5. Abrir cada app y poner potencia **30** una vez. La OTA conserva la configuración anterior; si estaba en27, no la sustituye automáticamente por el default nuevo.
-
-GPS, redes, canales, nombres y preferencias persistidas se conservan con la OTA. El loader permanece idéntico. No introducir el feed estándar Wio. Los manifiestos están firmados con la clave pública que ya reconoce ese loader; se comprueba placa, layout, tamaño ySHA256.
+Meshtastic conserva su región inicial `EU_868`, cuyo límite nominal documentado es27 dBm. **Sin compensación de PA, ese límite del software no garantiza limitar la salida final a27 dBm.** Esta variante entrega excitación máxima del chip por solicitud del owner; no se presenta como perfil calibrado de27 dBm ni como certificación de cumplimiento regional. Usar la región permitida en la ubicación real; `EU_868` no determina el país del destinatario. No se cambia `is_licensed`, cifrado, tabla regional ni duty cycle.
 
 ## Instalación de la factory
 
@@ -82,7 +70,7 @@ Para configurarlo en la pantalla: **Loader → OTA → Source → Edit**. Escrib
 
 La URL es la raíz que contiene las carpetas `wadamesh` y `meshtastic`, no un enlace directo a un `.bin`. Se conservan la comprobación de firmas, placa y particiones: configurar un Source no habilita instalar binarios arbitrarios ni feeds sin las firmas compatibles. No introducir el feed Wio estándar APE en este montaje E22P; reemplazaría la adaptación privada si se elige instalar ese firmware. El loader no instala automáticamente después de guardar un Source: los pasos Install/Test/Confirm siguen siendo manuales.
 
-**Conservar esta factory como variante privada.** No se publicó en el flasher ni se modificó el loader de nuestros builds habituales.
+La factory de respaldo sigue siendo local; las dos apps SX22 se publican en el feed OTA independiente. Se conserva el loader original.
 
 ## Documentación técnica utilizada
 
@@ -93,3 +81,10 @@ La URL es la raíz que contiene las carpetas `wadamesh` y `meshtastic`, no un en
 - [Meshtastic configuración LoRa](https://meshtastic.org/docs/configuration/radio/lora/): región, preset y canal.
 
 Meshtastic ya dispone del driver y mecanismos necesarios. En el código oficial revisado332b5b0 no hay un preset específico E22P-868M30S para nuestra T147 DualBoot; las opciones de otros E22 no equivalen a este módulo. Esta factory aplica su configuración de placa/potencia sin cambiar los protocolos del driver, y conserva el arreglo GPS local previamente validado.
+
+## Feed OTA SX22 vigente
+
+Fuente: `https://projectsape.github.io/t147-e22p868-ota`.
+En el loader, conectarWi-Fi, guardar esa fuente en **OTA→Source→Edit**, hacer **Check** y actualizar **WadaMesh y Meshtastic por separado**, siguiendo **Install/Test/Confirm**. Después seleccionar potencia **22** en ambas apps. Se conserva la configuración y el GPS; no se reemplaza el loader. Quien ya usa esa fuente solo necesitaCheck.
+
+La versiónSX22 sustituye la referencia anterior con excitación10. Los valores del selector ahora describen potencia del chip, sin compensación de software del PA. La salida final del módulo puede superar1W según la curva del fabricante; no es una medición de la unidad real.

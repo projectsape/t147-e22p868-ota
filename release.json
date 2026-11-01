@@ -1,51 +1,51 @@
 {
   "schema": 1,
-  "version": "E22P868-RF30-20261101",
+  "version": "E22P868-SX22-20261101",
   "feed_root": "https://projectsape.github.io/t147-e22p868-ota",
   "module": "EBYTE E22P-868M30S",
   "purpose": "Closed RF experiments",
-  "nominal_rf_request_dbm": 30,
-  "chip_drive_max_dbm": 10,
+  "power_semantics": "Direct SX1262 chip drive; module RF output is not calibrated",
+  "initial_chip_drive_dbm": 22,
+  "chip_drive_max_dbm": 22,
+  "pa_compensation_db": 0,
   "reference_supply_v": 5,
-  "power_basis": "EBYTE 5 V curve; no RF measurement or calibration",
   "region_frequency_profile": "EU_868",
-  "regional_power_clamp_overridden": true,
   "encryption_and_owner_license_unchanged": true,
   "components": {
     "wadamesh": {
       "manifest": "wadamesh/manifest.json",
-      "file": "wadamesh/wadamesh-e22p868-rf30-d9794e7731cc913a.bin",
-      "bytes": 3489488,
-      "sha256": "d9794e7731cc913a8e06dd1b82b837afeffba541a7349619c6d95cfcce8a6f8b",
+      "file": "wadamesh/wadamesh-e22p868-sx22-e98d7c3b2538b7e9.bin",
+      "bytes": 3489456,
+      "sha256": "e98d7c3b2538b7e9760db63b4919a45f4b74e2090797700f2f711940ca379efe",
       "app_version": "v1.18.0.1-touch",
-      "esp_descriptor_version": "esp-idf: v4.4.7 38eeba213a",
-      "source_tree": "bfa7e8c9273e756bd745126cf58ad14af02537d0",
+      "source_tree": "8b6009da6a6fc4b2ed18923c4c4e35ac96e31b78",
+      "reused_exact_verified_build": true,
       "loader_parser_passed": true,
-      "signature_verified_openssl": true,
-      "wrong_target_rejected": true
+      "signature_verified_openssl": true
     },
     "meshtastic": {
       "manifest": "meshtastic/manifest.json",
-      "file": "meshtastic/meshtastic-e22p868-rf30-a442a05b31d8e764.bin",
-      "bytes": 3763280,
-      "sha256": "a442a05b31d8e7642726bfdfe35d029328a51eb08ead483dba34a7ba32fa0e44",
+      "file": "meshtastic/meshtastic-e22p868-sx22-27ac1d734a6fda98.bin",
+      "bytes": 3763200,
+      "sha256": "27ac1d734a6fda98750a6c9879c5223160467b657e688bfd7db150e99bf91343",
       "app_version": "2.8.2.3593f31",
-      "esp_descriptor_version": "v2.8.0.47db0e3-308-g3593f3158-d",
-      "source_tree": "5d277fb9bdca5e41133f904720ca3a5d2985292e",
+      "source_tree": "445906a24d347011bf0251c2008d2d8c62d60535",
+      "reused_exact_verified_build": true,
       "loader_parser_passed": true,
-      "signature_verified_openssl": true,
-      "wrong_target_rejected": true
+      "signature_verified_openssl": true
     }
   },
   "loader_replacement_required": false,
   "configuration_erased": false,
-  "after_update": "Set TX power to 30 in both apps; saved settings are preserved.",
+  "after_update": "Set TX power to 22 in both apps; saved settings are preserved.",
   "gps": {
     "enabled_fresh_defaults": true,
     "esp_rx": 44,
     "esp_tx": 43,
-    "baud": 9600
+    "baud": 9600,
+    "nmea_fix_retained": true
   },
   "hardware_rf_tested": false,
-  "power_calibrated": false
+  "power_calibrated": false,
+  "replaces_version": "E22P868-RF30-20261101"
 }

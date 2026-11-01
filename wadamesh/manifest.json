@@ -1,15 +1,15 @@
 {
   "schema_version": 3,
-  "version": "E22P868-RF30-20261101",
+  "version": "E22P868-SX22-20261101",
   "app_version": "v1.18.0.1-touch",
   "commit": "26578cdc87896c78d533c00568846ecdd7dcfb2b",
   "health_protocol": 0,
   "board": "waveshare-esp32-s3-touch-lcd-1.47-lora-dualboot",
   "component": "wadamesh",
   "layout": "ape-t147-dualboot-ota-v2",
-  "size": 3489488,
-  "sha256": "d9794e7731cc913a8e06dd1b82b837afeffba541a7349619c6d95cfcce8a6f8b",
-  "firmware_url": "wadamesh-e22p868-rf30-d9794e7731cc913a.bin",
-  "notes": "E22P868 5V closed RF test. RF30 reference; chip10. Set TX30 after OTA. GPS retained.",
-  "signature": "MEYCIQCoLL0gWXZODQHAvIWqKZyynELHk5twjMhIIJ2kfirCdAIhALilXCPEp2oe9yrHzfjYnwyNpYeKMcESwXI8OC6Xhe0I"
+  "size": 3489456,
+  "sha256": "e98d7c3b2538b7e9760db63b4919a45f4b74e2090797700f2f711940ca379efe",
+  "firmware_url": "wadamesh-e22p868-sx22-e98d7c3b2538b7e9.bin",
+  "notes": "E22P868: direct SX1262 drive, default/max 22 dBm. Set TX22 after OTA. GPS retained.",
+  "signature": "MEUCICf35CIgLs9JsRlPd3CkjAyXsKdJAzAy+ILtgkSGKWU1AiEA0B1atYqzT4oz6B7cBmAb0zCohF6Uwxmn4aSXhRWsfrU="
 }

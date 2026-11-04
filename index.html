@@ -3,23 +3,23 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>T147 E22P-868 · Actualización OTA</title>
-<meta name="description" content="Fuente OTA independiente para T147 DualBoot con E22P-868M30S. Excitación directa SX1262 de +22 dBm en ambas apps.">
+<meta name="description" content="Fuente OTA independiente para T147 DualBoot con E22P-868M30S: Meshtastic selector 30 = 22 dBm de excitación; WadaMesh fijo en 22 dBm.">
 <style>
 :root{color-scheme:dark;font-family:system-ui,sans-serif;background:#111820;color:#e9f0f5}body{margin:0;padding:40px 20px}main{max-width:700px;margin:auto}h1{font-size:2rem;line-height:1.15}p,li{line-height:1.65}small{color:#aec0cd}.tag{display:inline-block;padding:5px 10px;border:1px solid #647e92;border-radius:30px;color:#bfdbed;font-size:.8rem}.source{background:#1b2a37;padding:20px;border-radius:12px;margin:24px 0}.source code{display:block;overflow-wrap:anywhere;font-size:1rem;line-height:1.5}button{margin-top:16px;border:0;border-radius:6px;padding:11px 18px;background:#a8d5f2;color:#102536;font:inherit;cursor:pointer}a{color:#a8d5f2}ol{padding-left:23px}li{margin-bottom:10px}.note{border-left:3px solid #a8d5f2;padding-left:16px}footer{margin-top:32px;border-top:1px solid #344756;padding-top:20px;font-size:.9rem}#copied{display:inline-block;margin-left:12px;color:#b5dfba}
 </style>
 <main>
 <span class="tag">E22P-868M30S · Experimentos cerrados</span>
-<h1>T147 DualBoot<br>OTA · SX1262 a +22 dBm</h1>
+<h1>T147 DualBoot<br>OTA · Selector30 + WadaFixed22</h1>
 <p>Versión E22P868-Sel30-WadaFixed22-20261104. Meshtastic con selector nominal hasta 30 (30 = 22 dBm de excitación); WadaMesh fijo en 22 dBm. El loader de esta ronda nace apuntando a este feed.</p>
 <div class="source"><small>Escribir en Loader → OTA → Source → Edit</small><code id="source">https://projectsape.github.io/t147-e22p868-ota</code><button id="copy" type="button">Copiar fuente</button><span id="copied" role="status" aria-live="polite"></span></div>
 <ol>
 <li>Entrar al loader, conectar Wi-Fi y esperar la sincronización de hora.</li>
-<li>Abrir <strong>OTA → Source → Edit</strong>, escribir la fuente completa y guardar con <strong>Done</strong>.</li>
+<li>Comprobar la fuente. La factory SourceFeed ya la incluye; si está vacía, abrir <strong>OTA → Source → Edit</strong>, escribir la URL completa y guardar con <strong>Done</strong>.</li>
 <li>Pulsar <strong>Check</strong> y actualizar <strong>WadaMesh</strong>, siguiendo <strong>Install / Test / Confirm</strong>.</li>
 <li>Repetir para <strong>Meshtastic</strong>.</li>
-<li>En cada app, seleccionar potencia <strong>22</strong> una vez.</li>
+<li>En Meshtastic, seleccionar <strong>30</strong> para obtener <strong>22 dBm de excitación</strong>. WadaMesh mantiene <strong>22 dBm fijos</strong>, sin depender de la preferencia guardada.</li>
 </ol>
-<p>La OTA conserva los ajustes guardados, el GPS, las redes y los canales. El loader permanece igual. Si prefieres cable, hay paquete USB app-only con el mismo binario: escribe solo el slot de la app, sin borrar nada.</p>
+<p>La OTA conserva los ajustes guardados, el GPS, las redes y los canales; no reemplaza el loader. La factory privada SourceFeed es otra instalación: incluye el loader con esta fuente por defecto y reemplaza la flash completa, borrando la configuración anterior.</p>
 <p class="note"><strong>+22 dBm de excitación del SX1262.</strong> Perfil para experimentos cerrados con E22P-868M30S alimentado a5V. El PA amplifica después; la potencia RF final no está medida ni calibrada. Conserva las frecuenciasEU_868.</p>
 <footer><a href="LEEME-PINOUT.md">Guía y cableado</a> · <a href="release.json">Versiones y hashes</a> · <a href="SHA256SUMS">Checksums</a><p><small>Exclusivo para E22P-868M30S con alimentación del radio a5V.</small></p></footer>
 </main>

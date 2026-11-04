@@ -82,9 +82,9 @@ La factory de respaldo sigue siendo local; las dos apps SX22 se publican en el f
 
 Meshtastic ya dispone del driver y mecanismos necesarios. En el código oficial revisado332b5b0 no hay un preset específico E22P-868M30S para nuestra T147 DualBoot; las opciones de otros E22 no equivalen a este módulo. Esta factory aplica su configuración de placa/potencia sin cambiar los protocolos del driver, y conserva el arreglo GPS local previamente validado.
 
-## Feed OTA SX22 vigente
+## Feed OTA vigente
 
-Actualización `E22P868-SX22-20261104`: Meshtastic sobre la base nueva de upstream. WadaMesh es el mismo binario ya publicado. Se conserva configuración, GPS y potencia 22.
+Actualización `E22P868-Sel30-WadaFixed22-20261104`: Meshtastic con la escala nominal del selector (30 =22 dBm) y WadaMesh con excitación fija en22 dBm. Se conserva configuración y GPS.
 
 Fuente: `https://projectsape.github.io/t147-e22p868-ota`.
 En el loader, conectarWi-Fi, guardar esa fuente en **OTA→Source→Edit**, hacer **Check** y actualizar **WadaMesh y Meshtastic por separado**, siguiendo **Install/Test/Confirm**. Después seleccionar potencia **22** en ambas apps. Se conserva la configuración y el GPS; no se reemplaza el loader. Quien ya usa esa fuente solo necesitaCheck.

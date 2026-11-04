@@ -1,15 +1,15 @@
 {
   "schema_version": 3,
-  "version": "E22P868-SX22-20261104",
+  "version": "E22P868-Sel30-WadaFixed22-20261104",
   "app_version": "v1.18.0.1-touch",
   "commit": "53d17d0b0f22fc5fe460e13d5ef2e0d3008ca03a",
   "health_protocol": 0,
   "board": "waveshare-esp32-s3-touch-lcd-1.47-lora-dualboot",
   "component": "wadamesh",
   "layout": "ape-t147-dualboot-ota-v2",
-  "size": 3489456,
-  "sha256": "e98d7c3b2538b7e9760db63b4919a45f4b74e2090797700f2f711940ca379efe",
-  "firmware_url": "wadamesh-e22p868-sx22-e98d7c3b2538b7e9.bin",
-  "notes": "E22P868: SX1262 direct drive, 22 dBm, no gain offset. GPS retained.",
-  "signature": "MEYCIQC2NUunc1sqro7Dr5W7sjOzQCzovskRTF82wY/mUVvsRwIhAIHgrAYTSyifuDITo9TQKIF62JAyIWyomUYy7kv2S1kH"
+  "size": 3489424,
+  "sha256": "ccb778594193412c9cc7966cfb2731e70b42d69954225797741904dc801b090d",
+  "firmware_url": "wadamesh-e22p868-fixed22-ccb778594193412c.bin",
+  "notes": "Meshtastic selector 30 = 22 dBm drive; WadaMesh fixed 22 dBm. GPS retained.",
+  "signature": "MEUCIQDt2pjTWXeAblxk9G22qq6gTRiI0gTtlKNp0sVFzIjLhQIgT7cODKfOoN8LoBfTEeSxkth+0LrHFBenGvQhrDxtTfg="
 }

@@ -1,41 +1,52 @@
 {
   "schema": 1,
-  "version": "E22P868-SX22-20261104",
+  "version": "E22P868-Sel30-WadaFixed22-20261104",
   "feed_root": "https://projectsape.github.io/t147-e22p868-ota",
   "module": "EBYTE E22P-868M30S",
   "purpose": "Closed RF experiments",
-  "power_semantics": "Direct SX1262 chip drive; module RF output is not calibrated",
+  "power_semantics": "Nominal selector scale in Meshtastic; fixed SX1262 drive in WadaMesh; RF output is not calibrated",
   "initial_chip_drive_dbm": 22,
   "chip_drive_max_dbm": 22,
   "pa_compensation_db": 0,
+  "meshtastic_selector_scale": {
+    "30": 22,
+    "29": 21,
+    "28": 20,
+    "26": 18,
+    "22": 14,
+    "20": 12,
+    "0": "auto22"
+  },
+  "wadamesh_fixed_chip_drive_dbm": 22,
   "reference_supply_v": 5,
   "region_frequency_profile": "EU_868",
   "encryption_and_owner_license_unchanged": true,
   "components": {
     "wadamesh": {
       "manifest": "wadamesh/manifest.json",
-      "file": "wadamesh/wadamesh-e22p868-sx22-e98d7c3b2538b7e9.bin",
-      "bytes": 3489456,
-      "sha256": "e98d7c3b2538b7e9760db63b4919a45f4b74e2090797700f2f711940ca379efe",
+      "file": "wadamesh/wadamesh-e22p868-fixed22-ccb778594193412c.bin",
+      "bytes": 3489424,
+      "sha256": "ccb778594193412c9cc7966cfb2731e70b42d69954225797741904dc801b090d",
       "app_version": "v1.18.0.1-touch",
-      "source_tree": "8b6009da6a6fc4b2ed18923c4c4e35ac96e31b78",
+      "source_tree": "6fa09f73dc5fa98ed46331d8752bfdbcf9c240ba",
       "loader_parser_passed": true,
       "signature_verified_openssl": true
     },
     "meshtastic": {
       "manifest": "meshtastic/manifest.json",
-      "file": "meshtastic/meshtastic-e22p868-sx22-7c762e1299b4fddb.bin",
-      "bytes": 3764160,
-      "sha256": "7c762e1299b4fddbabc6fda487d21f6c3f368e5371dd3f392ece972f5412a830",
-      "app_version": "2.8.3.73eee6b",
-      "source_tree": "1047033b395a14101c17bdcfc1777049e2204d39",
+      "file": "meshtastic/meshtastic-e22p868-fixed22-ee23d5b96fca45be.bin",
+      "bytes": 3764128,
+      "sha256": "ee23d5b96fca45bec551066c748ace2d689279312c7c233928e0d7ad92605e1a",
+      "app_version": "2.8.3.3c1f175",
+      "source_tree": "f200971cdeaa07b6e3a959b35f42c3fe0a742633",
       "loader_parser_passed": true,
       "signature_verified_openssl": true
     }
   },
   "loader_replacement_required": false,
   "configuration_erased": false,
-  "after_update": "Set TX power to 22 in both apps; saved settings are preserved.",
+  "loader_default_source": "https://projectsape.github.io/t147-e22p868-ota",
+  "after_update": "Saved settings are preserved. Meshtastic selector 30 keeps 22 dBm of drive; WadaMesh is fixed at 22 dBm.",
   "gps": {
     "enabled_fresh_defaults": true,
     "esp_rx": 44,
@@ -46,5 +57,6 @@
   "hardware_rf_tested": false,
   "power_calibrated": false,
   "upstream_meshtastic_base": "51ac6ea7b7d7cb430acee10fcff41fbca94a20ba",
-  "replaces_version": "E22P868-SX22-20261101"
+  "upstream_wadamesh_base": "53d17d0b0f22fc5fe460e13d5ef2e0d3008ca03a",
+  "replaces_version": "E22P868-SX22-20261104"
 }

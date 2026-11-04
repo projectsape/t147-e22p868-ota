@@ -1,15 +1,15 @@
 {
   "schema_version": 3,
-  "version": "E22P868-SX22-20261101",
-  "app_version": "2.8.2.3593f31",
-  "commit": "332b5b0a2c4fec2896de3c5fa63f46d5cd05ea98",
+  "version": "E22P868-SX22-20261104",
+  "app_version": "2.8.3.73eee6b",
+  "commit": "51ac6ea7b7d7cb430acee10fcff41fbca94a20ba",
   "health_protocol": 0,
   "board": "waveshare-esp32-s3-touch-lcd-1.47-lora-dualboot",
   "component": "meshtastic",
   "layout": "ape-t147-dualboot-ota-v2",
-  "size": 3763200,
-  "sha256": "27ac1d734a6fda98750a6c9879c5223160467b657e688bfd7db150e99bf91343",
-  "firmware_url": "meshtastic-e22p868-sx22-27ac1d734a6fda98.bin",
-  "notes": "E22P868: direct SX1262 drive, default/max 22 dBm. Set TX22 after OTA. GPS retained.",
-  "signature": "MEQCIAanEj1FvgYl3r7zbWLTXz6YxqnMepUYzEWSmVVRXzaaAiARGXC5fCO+nEe7OFM2dHCL8QnEQc/qf9yyQjLLLOUy8w=="
+  "size": 3764160,
+  "sha256": "7c762e1299b4fddbabc6fda487d21f6c3f368e5371dd3f392ece972f5412a830",
+  "firmware_url": "meshtastic-e22p868-sx22-7c762e1299b4fddb.bin",
+  "notes": "E22P868: SX1262 direct drive, 22 dBm, no gain offset. GPS retained.",
+  "signature": "MEUCIQDepQA5OcWutDWA1jW5om9DqiCOW++suzzv1ADehoiPlQIgaC5BRIkoXEtbFuUwMD4VGxDNMqR6JW4ZFL8ugM9GFO0="
 }

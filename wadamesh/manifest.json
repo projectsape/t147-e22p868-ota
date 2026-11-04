@@ -1,8 +1,8 @@
 {
   "schema_version": 3,
-  "version": "E22P868-SX22-20261101",
+  "version": "E22P868-SX22-20261104",
   "app_version": "v1.18.0.1-touch",
-  "commit": "26578cdc87896c78d533c00568846ecdd7dcfb2b",
+  "commit": "53d17d0b0f22fc5fe460e13d5ef2e0d3008ca03a",
   "health_protocol": 0,
   "board": "waveshare-esp32-s3-touch-lcd-1.47-lora-dualboot",
   "component": "wadamesh",
@@ -10,6 +10,6 @@
   "size": 3489456,
   "sha256": "e98d7c3b2538b7e9760db63b4919a45f4b74e2090797700f2f711940ca379efe",
   "firmware_url": "wadamesh-e22p868-sx22-e98d7c3b2538b7e9.bin",
-  "notes": "E22P868: direct SX1262 drive, default/max 22 dBm. Set TX22 after OTA. GPS retained.",
-  "signature": "MEUCICf35CIgLs9JsRlPd3CkjAyXsKdJAzAy+ILtgkSGKWU1AiEA0B1atYqzT4oz6B7cBmAb0zCohF6Uwxmn4aSXhRWsfrU="
+  "notes": "E22P868: SX1262 direct drive, 22 dBm, no gain offset. GPS retained.",
+  "signature": "MEYCIQC2NUunc1sqro7Dr5W7sjOzQCzovskRTF82wY/mUVvsRwIhAIHgrAYTSyifuDITo9TQKIF62JAyIWyomUYy7kv2S1kH"
 }
